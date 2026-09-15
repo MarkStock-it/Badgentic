@@ -1,0 +1,16 @@
+<!-- version: 1 -->
+Create a study deck for this assignment.
+
+Course: {{assignment.course.name}}
+Assignment: {{assignment.name}}
+Analysis: {{analysis.summary}}
+Requirements: {{analysis.requirements}}
+
+Produce Q/A study cards. Respond with JSON only:
+{
+  "title": "Study deck — <topic>",
+  "sections": [
+    { "heading": "Key terms", "paragraphs": [], "bullets": ["term — definition"] },
+    { "heading": "Questions", "paragraphs": [], "bullets": ["Q: ... → A: ..."] }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "betterclss-agentic",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Standalone executor-of-record for BetterCLSS agentic jobs (Canvas + BYOK AI, Render + Postgres).",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "migrate": "node scripts/migrate.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "docx": "^9.0.2",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.36.4",
+    "express": "^4.21.2",
+    "pino": "^9.5.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.28.1",
+    "vitest": "^2.1.8"
+  }
+}

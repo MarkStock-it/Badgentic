@@ -1,0 +1,22 @@
+<!-- version: 2 -->
+You are deciding whether this task is supported.
+
+Assignment summary from analysis:
+{{analysis.summary}}
+
+Requested job kind: {{kind}}
+Assignment submission types: {{assignment.submission_types}}
+
+Rules:
+- assignment_document requires an online_upload submission type.
+- discussion_post works on any assignment (delivered as a submission comment).
+- study_deck produces a local study artifact only (no Canvas write).
+- Anything else (video, spreadsheet, presentation, peer review) is UNSUPPORTED in v1.
+
+Respond with JSON only:
+{
+  "supported": true|false,
+  "reason": "why not, if unsupported",
+  "requires_user_action": false,
+  "user_action_reason": null
+}

@@ -1,0 +1,14 @@
+<!-- version: 2 -->
+You are validating a draft against the assignment requirements.
+
+Requirements:
+{{analysis.requirements}}
+
+Draft: {{draft}}
+
+For each requirement, state whether the draft satisfies it. Respond with JSON only:
+{
+  "verdict": "PASS|FAIL",
+  "checks": [{ "requirement": "...", "satisfied": true|false, "note": "..." }],
+  "missing": ["what is missing"]
+}

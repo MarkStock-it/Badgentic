@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BetterCLSS Agentic</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>BetterCLSS Agentic</h1>
+    <div id="identity" class="muted">Not signed in</div>
+  </header>
+
+  <main>
+    <!-- 1. Bootstrap: traded the handoff token for a session cookie -->
+    <section id="view-boot" class="card">
+      <h2>Connecting…</h2>
+      <p class="muted">Exchanging your BetterCLSS handoff for a session.</p>
+      <form id="paste-token-form" class="hidden">
+        <label>Canvas token
+          <input type="password" id="canvas-token" placeholder="Paste your Canvas token" required />
+        </label>
+        <label>Canvas domain
+          <input type="text" id="canvas-domain" placeholder="usc.instructure.com" required />
+        </label>
+        <button type="submit">Connect Canvas</button>
+        <p class="muted">No handoff link? Paste your Canvas token to sign in.</p>
+      </form>
+    </section>
+
+    <!-- 2. Settings: Canvas token + AI keys -->
+    <section id="view-settings" class="card hidden">
+      <h2>Settings</h2>
+      <form id="settings-form">
+        <label>Canvas token
+          <input type="password" id="set-canvas-token" placeholder="Paste a fresh Canvas token" />
+        </label>
+        <label>Canvas domain
+          <input type="text" id="set-canvas-domain" placeholder="usc.instructure.com" />
+        </label>
+        <label>Gemini API key (BYOK)
+          <input type="password" id="set-gemini-key" placeholder="AIza…" />
+        </label>
+        <label>Groq API key (BYOK)
+          <input type="password" id="set-groq-key" placeholder="gsk_…" />
+        </label>
+        <button type="submit">Save settings</button>
+        <span id="settings-status" class="muted"></span>
+      </form>
+    </section>
+
+    <!-- 3. Jobs -->
+    <section id="view-jobs" class="card hidden">
+      <h2>Jobs</h2>
+      <form id="new-job-form" class="row">
+        <select id="job-kind">
+          <option value="assignment_document">Assignment document (submission via approval)</option>
+          <option value="discussion_post">Discussion post (comment via approval)</option>
+          <option value="study_deck">Study deck (download only)</option>
+        </select>
+        <input type="number" id="job-course" placeholder="Course ID" required />
+        <input type="number" id="job-assignment" placeholder="Assignment ID" required />
+        <button type="submit">Create job</button>
+      </form>
+      <div id="jobs-list"></div>
+    </section>
+
+    <!-- 4. Job detail -->
+    <section id="view-job" class="card hidden">
+      <button id="back-to-jobs">← Back</button>
+      <h2 id="job-title"></h2>
+      <div id="job-state" class="pill"></div>
+      <pre id="job-logs" class="logs"></pre>
+      <div id="job-approvals"></div>
+      <div id="job-artifacts"></div>
+      <button id="job-cancel" class="danger">Cancel job</button>
+      <button id="job-retry" class="hidden">Retry</button>
+      <button id="job-download" class="hidden">Download artifact</button>
+      <div id="job-error" class="error hidden"></div>
+    </section>
+  </main>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
